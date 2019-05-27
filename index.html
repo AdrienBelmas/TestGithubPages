@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>TG LUCAS</title>
+		<meta charset="UTF-8"/>
+		<style>
+			html, body {
+				height: 100%;
+				width: 100%;
+				margin: 0;
+				padding: 0;
+			}
+			body {
+				background-image: url("https://media.licdn.com/mpr/mpr/shrinknp_200_200/AAEAAQAAAAAAAAdIAAAAJDIzZGRmODk3LTlhNjctNDQ4Ny04NTllLTgwY2IyZjcwYjY4ZQ.jpg");
+				background-position: center;
+				background-color: #ccc;
+				font-family: Arial;
+			}
+			header {
+				background: #fff;
+				padding: 10px;
+			}
+			#rank {
+				position: absolute;
+				top: 0;
+				right: 0;
+				width: 100px;
+			}
+			#onefuck {
+				position: fixed;
+				top: -1000px;
+				right: -1000px;
+				width: 500px;
+			}
+			footer {
+				position: absolute;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				height: 25%;
+				text-align: center;
+			}
+			#clickme {
+				height: 100%;
+			}
+		</style>
+		<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+	</head>
+	<body>
+		<header>Nombre de fucks envoyés à Lucas : <b>0</b></header>
+		<img id="rank" src=""/>
+		<img id="onefuck" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/The_gesture.svg/200px-The_gesture.svg.png"/>
+		<footer>
+			<img id="clickme" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/The_gesture.svg/200px-The_gesture.svg.png"/>
+		</footer>
+		<script type="text/javascript">
+			var btnH, btnW, Xpos, Ypos;
+			var nbFucks = 0;
+			var url100 = "https://cdn.pixabay.com/photo/2017/03/21/21/06/medal-2163351_960_720.png";
+			var url200 = "https://cdn.pixabay.com/photo/2016/08/26/15/59/medal-1622529_960_720.png";
+			var url300 = "https://cdn.pixabay.com/photo/2017/03/21/21/05/medal-2163347_960_720.png";
+			var url500 = "http://www.p2bs.org/assets/member-level-images/platinum-medal-small-jan17.png";
+			var url700 = "http://www.fortune6000.com/wp-content/uploads/2014/07/diamond.png";
+			var url1000 = "https://pre00.deviantart.net/09ab/th/pre/i/2015/113/6/c/tesseract_cube_test_1_by_kalel7-d5la5ya.png";
+			var url10000 = "https://d30y9cdsu7xlg0.cloudfront.net/png/1085678-200.png";
+
+			$( window ).resize(function() {
+				initValues();
+			});
+
+			$( "#clickme" ).click(function() {
+				nbFucks++;
+				$( "b" ).html(nbFucks);
+
+				// Gestion des médailles
+				switch(nbFucks) {
+					case 100:
+						$( "#rank" ).attr("src", url100);
+						break;
+					case 200:
+						$( "#rank" ).attr("src", url200);
+						break;
+					case 300:
+						$( "#rank" ).attr("src", url300);
+						break;
+					case 500:
+						$( "#rank" ).attr("src", url500);
+						break;
+					case 700:
+						$( "#rank" ).attr("src", url700);
+						break;
+					case 1000:
+						$( "#rank" ).attr("src", url1000);
+						break;
+					case 10000:
+						$( "#rank" ).attr("src", url10000);
+						break;
+				}
+
+				// Animation des fucks
+				var newFuck = $( "#onefuck" ).clone();
+				newFuck.appendTo( "body" )
+					.css("top", Xpos + "px")
+					.css("right", Ypos + "px")
+					.animate({
+						top: "0",
+						right: "0",
+						height: "0",
+						width: "0"
+					}, 1500, {
+						newFuck.remove();
+					});
+
+				// Animation du bouton
+				$( "#clickme" ).stop()
+					.height(btnH + 25)
+					.width(btnW + 25)
+					.animate({
+						height: btnH + "px",
+						width: btnW + "px"
+					}, 300);
+			});
+
+			function initValues() {
+				btnH = $( "#clickme" ).height();
+				btnW = $( "#clickme" ).width();
+				Xpos = ($( "body" ).height() / 2) - ($( "#onefuck" ).height() / 2) - 25;
+				Ypos = ($( "body" ).width() / 2) - ($( "#onefuck" ).width() / 2);
+			}
+
+			$(function() {
+				initValues();
+				$( "div" ).html("");
+			});
+		</script>
+	</body>
+</html>
