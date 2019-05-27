@@ -76,32 +76,32 @@
 				// Gestion des médailles
 				switch(nbFucks) {
 					case 100:
-						$( "#rank" ).attr("src", url100);
+						$("#rank").attr("src", url100);
 						break;
 					case 200:
-						$( "#rank" ).attr("src", url200);
+						$("#rank").attr("src", url200);
 						break;
 					case 300:
-						$( "#rank" ).attr("src", url300);
+						$("#rank").attr("src", url300);
 						break;
 					case 500:
-						$( "#rank" ).attr("src", url500);
+						$("#rank").attr("src", url500);
 						break;
 					case 700:
-						$( "#rank" ).attr("src", url700);
+						$("#rank").attr("src", url700);
 						break;
 					case 1000:
-						$( "#rank" ).attr("src", url1000);
+						$("#rank").attr("src", url1000);
 						break;
 					case 10000:
-						$( "#rank" ).attr("src", url10000);
+						$("#rank").attr("src", url10000);
 						break;
 				}
 
 				// Animation des fucks
 				initValues();
-				var newFuck = $( "#onefuck" ).clone();
-				newFuck.appendTo( "body" )
+				var newFuck = $("#onefuck").clone();
+				newFuck.appendTo("body")
 					.css("top", Xpos + "px")
 					.css("right", Ypos + "px")
 					.animate({
@@ -109,12 +109,12 @@
 						right: "0",
 						height: "0",
 						width: "0"
-					}, 1500, function(){
+					}, 1500, function() {
 						newFuck.remove();
 					});
 
 				// Animation du bouton
-				$( "#clickme" ).stop()
+				$("#clickme").stop()
 					.height(btnH + 25)
 					.width(btnW + 25)
 					.animate({
@@ -124,11 +124,11 @@
 			});
 
 			function initValues() {
-				btnH = $( "#clickme" ).height();
-				btnW = $( "#clickme" ).width();
-				Xpos = ($( "body" ).height() / 2) - ($( "#onefuck" ).height() / 2) - 25;
-				Ypos = ($( "body" ).width() / 2) - ($( "#onefuck" ).width() / 2);
-				Ypos = (dir ? Ypos - $( "body" ).width() / 4 : Ypos + $( "body" ).width() / 4)
+				btnH = $("#clickme").height();
+				btnW = $("#clickme").width();
+				Xpos = ($("body").height() / 2) - ($("#onefuck").height() / 2) - 25;
+				Ypos = ($("body").width() / 2) - ($("#onefuck").width() / 2);
+				Ypos = (dir ? Ypos - $("body").width() / 4 : Ypos + $("body").width() / 4)
 				dir = !dir;
 			}
 		</script>
