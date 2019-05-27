@@ -55,6 +55,7 @@
 		</footer>
 		<script type="text/javascript">
 			var btnH, btnW, Xpos, Ypos;
+			var dir = true;
 			var nbFucks = 0;
 			var url100 = "https://cdn.pixabay.com/photo/2017/03/21/21/06/medal-2163351_960_720.png";
 			var url200 = "https://cdn.pixabay.com/photo/2016/08/26/15/59/medal-1622529_960_720.png";
@@ -98,6 +99,7 @@
 				}
 
 				// Animation des fucks
+				initValues();
 				var newFuck = $( "#onefuck" ).clone();
 				newFuck.appendTo( "body" )
 					.css("top", Xpos + "px")
@@ -126,6 +128,8 @@
 				btnW = $( "#clickme" ).width();
 				Xpos = ($( "body" ).height() / 2) - ($( "#onefuck" ).height() / 2) - 25;
 				Ypos = ($( "body" ).width() / 2) - ($( "#onefuck" ).width() / 2);
+				Ypos = (dir ? Ypos - $( "body" ).width() / 4 : Ypos + $( "body" ).width() / 4)
+				dir = !dir;
 			}
 		</script>
 	</body>
