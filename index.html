@@ -64,13 +64,13 @@
 			var url1000 = "https://pre00.deviantart.net/09ab/th/pre/i/2015/113/6/c/tesseract_cube_test_1_by_kalel7-d5la5ya.png";
 			var url10000 = "https://d30y9cdsu7xlg0.cloudfront.net/png/1085678-200.png";
 
-			$( window ).resize(function() {
+			$(window).resize(function() {
 				initValues();
 			});
 
-			$( "#clickme" ).click(function() {
+			$("#clickme").click(function() {
 				nbFucks++;
-				$( "b" ).html(nbFucks);
+				$("b").html(nbFucks);
 
 				// Gestion des médailles
 				switch(nbFucks) {
@@ -107,7 +107,7 @@
 						right: "0",
 						height: "0",
 						width: "0"
-					}, 1500, {
+					}, 1500, function(){
 						newFuck.remove();
 					});
 
@@ -127,11 +127,6 @@
 				Xpos = ($( "body" ).height() / 2) - ($( "#onefuck" ).height() / 2) - 25;
 				Ypos = ($( "body" ).width() / 2) - ($( "#onefuck" ).width() / 2);
 			}
-
-			$(function() {
-				initValues();
-				$( "div" ).html("");
-			});
 		</script>
 	</body>
 </html>
